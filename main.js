@@ -14,16 +14,21 @@ window.onload = function () {
   var buttonReset = document.getElementById("button-reset");
   var lapBtn = document.getElementById("button-lap");
   var list = document.getElementById("lap-list");
+  var isStopClicked = false;
 
 
   // Start Button Onclick Function
   buttonStart.onclick = function () {
+      if((seconds==0 && tens ==0 && minut==0) || isStopClicked == true){
     Interval = setInterval(startTimer, 10);
+    isStopClicked = false;
+     }
   };
 
   // Stop Button Onclick Function
   buttonStop.onclick = function () {
     clearInterval(Interval);
+     isStopClicked = true;
   };
 
  // Reset Button Onclick Function
